@@ -25,6 +25,12 @@
     <script>
 
     </script>
+    <style>
+        
+          
+       
+       
+    </style>
 </head>
 
 <body class="g-sidenav-show  bg-gray-100">
@@ -228,8 +234,38 @@
         </nav>
         <!-- End Navbar -->
         <div class="container-fluid py-4">
-            <div class="row">
-                <h1>Budget Calculator Page</h1>
+            <div class="row mt-3">
+                <div class="col-lg-12 mb-lg-0 mb-4 mx-4">
+                    <div class="card">
+                        <div class="calculator" style="margin-left: 3%;">
+                            <h5 class="font-weight-bolder mt-3">Budget Calculator</h5>
+                    
+                            <!-- Calling Calculate function defined in app.js -->
+                            <table width="50%">
+                                <tr >
+                                    <th>Amount (RM)     :</th>
+                                    <td ><input class="form-control" id="amount" type="number" 
+                                onchange="Calculate()"></td>
+                                </tr>
+                                
+                                <tr>
+                                    <th>Interest Rate  :</th>
+                                    <td><input class="form-control" id="rate" type="number" 
+                                onchange="Calculate()"></td>
+                                </tr>
+                                <tr>
+                                    <th>Months to Pay :</th>
+                                    <td><input class="form-control" id="months" type="number" 
+                                onchange="Calculate()"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"><h5 style="font-weight: bold;">Total <i id="total"></i> </h5></td>
+                                </tr>
+                            </table>
+                            
+                        </div>
+                    </div>
+                </div>
             </div>
             <!-- /Table Responsive -->
             <footer class="footer pt-3  ">
@@ -275,48 +311,29 @@
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="./assets/js/soft-ui-dashboard.min.js?v=1.0.6"></script>
     <script>
-        var divRecentPayments = document.getElementById("recentpayments");
-        var divCommitedPayments = document.getElementById("paymentscommited");
-        var divUploadPaymentProof = document.getElementById("uploadpaymentproof");
-        //li shadows
-        var liRecentPaymentsTab = document.getElementById("recentpaymentstab");
-        var liPaymentCommited = document.getElementById('paymentcommited')
-        var liUploadProofPayment = document.getElementById('uploadproofpayment')
+        function Calculate() {
+  
+            // Extracting value in the amount 
+            // section in the variable
+            const amount = document.querySelector("#amount").value;
 
-        divRecentPayments.style.display = "inline";
-        divCommitedPayments.style.display = "none";
-        divUploadPaymentProof.style.display = "none";
-        liRecentPaymentsTab.style.boxShadow = '0 3px 10px rgb(0 0 0 / 0.2)';
-        function recentPayments() {
-            divRecentPayments.style.display = "inline";
-            divCommitedPayments.style.display = "none";
-            divUploadPaymentProof.style.display = "none";
-            liRecentPaymentsTab.style.boxShadow = '0 3px 10px rgb(0 0 0 / 0.2)';
-            liPaymentCommited.style.boxShadow = 'none';
-            liUploadProofPayment.style.boxShadow = 'none';
-        }
+            // Extracting value in the interest
+            // rate section in the variable
+            const rate = document.querySelector("#rate").value;
 
-        function commitedPayments() {
-            divRecentPayments.style.display = "none";
-            divCommitedPayments.style.display = "inline";
-            divUploadPaymentProof.style.display = "none";
+            // Extracting value in the months 
+            // section in the variable
+            const months = document.querySelector("#months").value;
 
-            liRecentPaymentsTab.style.boxShadow = 'none';
-            liPaymentCommited.style.boxShadow = '0 3px 10px rgb(0 0 0 / 0.2)';
-            liUploadProofPayment.style.boxShadow = 'none';
+            // Calculating interest per month
+            const interest = (amount * (rate * 0.01)) / months;
+                
+            // Calculating total payment
+            const total = ((amount / months) + interest).toFixed(2);
 
-        }
-
-        function uploadPaymentProof() {
-            divRecentPayments.style.display = "none";
-            divCommitedPayments.style.display = "none";
-            divUploadPaymentProof.style.display = "inline";
-
-            liRecentPaymentsTab.style.boxShadow = 'none';
-            liPaymentCommited.style.boxShadow = '';
-            liUploadProofPayment.style.boxShadow = '0 3px 10px rgb(0 0 0 / 0.2)';
-
-        }
+            document.querySelector("#total")
+                .innerHTML = "EMI : (RM)" + total;
+            }  
     </script>
 </body>
 
