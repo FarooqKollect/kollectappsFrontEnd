@@ -19,6 +19,12 @@
     <link href="./assets/css/nucleo-svg.css" rel="stylesheet" />
     <!-- CSS Files -->
     <link id="pagestyle" href="./assets/css/soft-ui-dashboard.css?v=1.0.6" rel="stylesheet" />
+    <!-- main.js for main functions -->
+    <script src="../assets/js/main.js"></script>
+    <script>
+
+  
+    </script>
 </head>
 
 <body class="">
@@ -92,9 +98,48 @@
                             <div class="card card-plain mt-8">
                                 <div class="card-header pb-0 text-left bg-transparent">
                                     <h3 class="font-weight-bolder text-info text-gradient">Welcome to Kollect Apps</h3>
-                                    <p class="mb-0">Enter your email and password to sign up</p>
+
                                 </div>
+                                <!-- cell phone -->
                                 <div class="card-body">
+                                    <form action="" method="post" id="cellphoneForm">
+                                        <p class="mb-0">Enter Your Cell Phone Number</p>
+                                        <label>(number which register with bank)</label>
+                                        <div class="mb-3">
+                                            <input type="text" id="cellphone" class="form-control"
+                                                placeholder="+60xxxxxxxxx" aria-label="Email"
+                                                aria-describedby="email-addon">
+                                        </div>
+                                        <input type="button" onclick="sendOTP()" class="btn btn-primary" name="" id="" value="Send OTP">
+                                    </form>
+                                    
+                                        <div id="otpdiv" style="display: none;">
+                                            <form action="#" method="post">
+                                            <input class="form-control" placeholder="Enter OTP Here" type="number" name="" id="otp" value="Enter OTP">
+                                                <br>
+                                            <input type="button" onclick="confirmOTP()" class="btn btn-primary" name="" id="" value="Confirm OTP">
+
+                                        </form>
+                                        </div>
+                                      <div id="registerDiv" style="display: none;">
+                                        <form action="" method="post" id="cellphoneForm">
+                                            <p class="mb-0">Enter Your Email and Password</p>
+                                            <label>(email which you want to register with bank)</label>
+                                            <div class="mb-3">
+                                                <input type="email" id="email" class="form-control"
+                                                    placeholder="customer@gmail.com" aria-label="Email"
+                                                    aria-describedby="email-addon">
+                                            </div>
+                                            <div class="mb-3">
+                                                <input type="password" id="password" class="form-control"
+                                                    placeholder="********" aria-label="Password"
+                                                    aria-describedby="email-addon">
+                                            </div>
+                                            <input type="button" onclick="registerCustomer()" class="btn btn-primary" name="" id="" value="Register">
+                                        </form>
+                                      </div>
+                                </div>
+                                <!-- <div class="card-body">
                                     <form role="form">
                                         <label>Email</label>
                                         <div class="mb-3">
@@ -120,7 +165,7 @@
                                                 Up</button>
                                         </div>
                                     </form>
-                                </div>
+                                </div> -->
                                 <div class="card-footer text-center pt-0 px-lg-2 px-1">
                                     <p class="mb-4 text-sm mx-auto">
                                         have an account?
@@ -212,6 +257,8 @@
     </script>
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <!-- main.js for main functions -->
+    <script src="../assets/js/main.js"></script>
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="./assets/js/soft-ui-dashboard.min.js?v=1.0.6"></script>
 </body>
